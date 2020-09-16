@@ -27,50 +27,62 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| name     | string | null: false |
-| birthday | integer| null: false |
-| telnumber| integer| null: false |
+| Column       | Type   | Options     |
+| ------------ | ------ | ----------- |
+| nickname     | string | null: false |
+| email        | string | null: false |
+| password     | string | null: false |
+| first_name   | string | null: false |
+| last_name    | string | null: false |
+|furigana_frist| string | null: false |
+|furigana_last | string | null: false |
+| birthday     | date   | null: false |
+| telnumber    | integer| null: false |
 
 ### Association
 
 - has_many :items
-- has_many :buyers
+- has_many :shoppings
 
 ## items テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| image  | string | null: false |
-| name   | string | null: false |
-| text   | text   | null: false |
-|category| string | null: false |
-| status | string | null: false |
-|delivery| string | null: false |
-| area   | string | null: false |
-| day    |integer | null: false |
-| price  | integer| null: false |
-|user_id |references| null: false |
+| Column    | Type   | Options     |
+| --------- | ------ | ----------- |
+|   name    |  string | null: false |
+|   text    |  text   | null: false |
+|category_id| integer | null: false |
+| status_id | integer | null: false |
+|delivery_id| integer | null: false |
+|  area_id  | integer | null: false |
+|  day_id   | integer | null: false |
+|   price   | integer | null: false |
+|  user_id  |references| null: false, foreign_key: true  |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :buyer
+- belongs_to :shopping
 
-## buyers テーブル
-
-| Column | Type       | Options      |
-| ------ | ---------- | -------------|
-| price  | integer    | null: false  |
-| address| string     | null: false  |
-| item_id| references | null: false  |
+## shoppings テーブル
+ 
+| Column  |    Type    | Options                        |
+| --------| ---------- | -------------------------------|
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :users
+- belongs_to :user
 - has_many :items
+- has_one :address
+
+## addresses テーブル
+
+| Column      | Type       | Options      |
+| ------------| ---------- | -------------|
+| shopping_id | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :shopping
 
