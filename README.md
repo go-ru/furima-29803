@@ -56,7 +56,7 @@ Things you may want to cover:
 |  area_id  | integer | null: false |
 |  day_id   | integer | null: false |
 |   price   | integer | null: false |
-|  user_id  |references| null: false, foreign_key: true  |
+|   user    |references| null: false, foreign_key: true  |
 
 ### Association
 
@@ -65,10 +65,10 @@ Things you may want to cover:
 
 ## shoppings テーブル
  
-| Column  |    Type    | Options                        |
-| --------| ---------- | -------------------------------|
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| Column|    Type    | Options                        |
+| ------| ---------- | -------------------------------|
+| user  | references | null: false, foreign_key: true |
+| item  | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -80,13 +80,13 @@ Things you may want to cover:
 
 | Column      | Type       | Options      |
 | ------------| ---------- | -------------|
-| shopping_id | references | null: false, foreign_key: true |
-| postal_code | integer    | null: false |
+| shopping    | references | null: false, foreign_key: true |
+| postal_code | string     | null: false |
 | prefecture  | string     | null: false |
 | city        | string     | null: false |
 | lot_number  | string     | null: false |
-|  building   | string     | null: false |
-| tel_number  | integer    | null: false |
+|  building   | string     |
+| tel_number  | string     | null: false |
 
 
 ### Association
