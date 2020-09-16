@@ -37,7 +37,7 @@ Things you may want to cover:
 |furigana_frist| string | null: false |
 |furigana_last | string | null: false |
 | birthday     | date   | null: false |
-| telnumber    | integer| null: false |
+
 
 ### Association
 
@@ -61,7 +61,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to :shopping
+- has_one :shopping
 
 ## shoppings テーブル
  
@@ -73,7 +73,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_many :items
+- belongs_to :item
 - has_one :address
 
 ## addresses テーブル
@@ -81,6 +81,13 @@ Things you may want to cover:
 | Column      | Type       | Options      |
 | ------------| ---------- | -------------|
 | shopping_id | references | null: false, foreign_key: true |
+| postal_code | integer    | null: false |
+| prefecture  | string     | null: false |
+| city        | string     | null: false |
+| lot_number  | string     | null: false |
+|  building   | string     | null: false |
+| tel_number  | integer    | null: false |
+
 
 ### Association
 
