@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
       it "Nicknameが空だと登録できない" do
         @user.nickname = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include()
+        expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it "Emailが空だと登録できない" do
         @user.email = nil
@@ -100,7 +100,7 @@ RSpec.describe User, type: :model do
       it "furigana_firstが全角カタカナでなければ登録できない" do
         @user.furigana_first = "たなか"
         @user.valid?
-        expect(@user.errors.full_messages).to include()
+        expect(@user.errors.full_messages).to include("Furigana first is invalid")
       end
       it "furigana_lastが空だと登録できない" do
         @user.furigana_last = nil
@@ -110,12 +110,12 @@ RSpec.describe User, type: :model do
       it "furigana_lastが全角カタカナでなければ登録できない" do
         @user.furigana_last = "じろう"
         @user.valid?
-        expect(@user.errors.full_messages).to include()
+        expect(@user.errors.full_messages).to include("Furigana last is invalid")
       end
       it "Birthdayが存在しないと登録できない" do
         @user.birthday = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include()
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
       
     end
