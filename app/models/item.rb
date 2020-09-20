@@ -1,15 +1,16 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category 
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :area
+  belongs_to_active_hash :day
 
-  with_options presence: true do
-    validates :name
-    validates :text
-    validates :category_id
-    validates :status_id
-    validates :delivery_id
-    validates :area_id
-    validates :day_id
-    validates :price
-  end
+  validates :image, :name, :text, :category, :status, :delivery, :area, :day, :price, presence: true
+
+  validates :category_id, :status_id, :delivery_id, :area_id, :day_id, numericality: { other_than: 0 }
+  # validates :price, format: { with: }
 end
