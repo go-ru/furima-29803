@@ -42,20 +42,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Category is not a number')
       end
+      it 'category_idが--を示すid値だと出品できない' do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 0')
+      end
       it 'status_idが空だと出品できない' do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('Status is not a number')
+      end
+      it 'status_idが--を示すid値だと出品できない' do
+        @item.status_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Status must be other than 0')
       end
       it 'delivery_idが空だと出品できない' do
         @item.delivery_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery is not a number')
       end
+      it 'delivery_idが--を示すid値だと出品できない' do
+        @item.delivery_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Delivery must be other than 0')
+      end
       it 'area_idが空だと出品できない' do
         @item.area_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('Area is not a number')
+      end
+      it 'area_idが--を示すid値だと出品できない' do
+        @item.area_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Area must be other than 0')
+      end
+      it 'day_idが空だと出品できない' do
+        @item.day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Day is not a number')
+      end
+      it 'day_idが--を示すid値だと出品できない' do
+        @item.day_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Day must be other than 0')
       end
       it 'priceが空だと出品できない' do
         @item.price = nil
