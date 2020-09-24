@@ -82,7 +82,7 @@ Things you may want to cover:
 | ------------| ---------- | -------------|
 | shopping    | references | null: false, foreign_key: true |
 | postal_code | string     | null: false |
-| prefecture  | string     | null: false |
+| area_id     | string     | null: false |
 | city        | string     | null: false |
 | lot_number  | string     | null: false |
 |  building   | string     |
