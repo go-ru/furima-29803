@@ -20,8 +20,8 @@ const pay = ()=>{
         const renderDom = document.getElementById("charge-form"); //送信フォームオブジェクトを準備
         const tokenObj = `<input value=${token} type="hidden" name='token'>`; //トークンをhiddenで付与したタグを準備
         renderDom.insertAdjacentHTML("beforeend", tokenObj); //トークンタグをフォームオブジェクトに結合
-      } else {
-      }
+      } 
+      
         document.getElementById("card-number").removeAttribute("name"); //以下で入力された各カード情報がパラメーターとして送られないように、値を削除しています。 
         document.getElementById("card-cvc").removeAttribute("name");
         document.getElementById("card-exp-month").removeAttribute("name");

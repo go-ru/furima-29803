@@ -21,6 +21,10 @@ RSpec.describe ShoppingAddress, type: :model do
         @shopping_address.tel_number = '1111111111'
         expect(@shopping_address).to be_valid
       end
+      it 'buildingが空でも購入できる' do
+        @shopping_address.building = nil
+        expect(@shopping_address).to be_valid
+      end
     end
 
     context '商品を購入できない時' do
