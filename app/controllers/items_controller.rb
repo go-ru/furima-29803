@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
   end
 
   def destroy

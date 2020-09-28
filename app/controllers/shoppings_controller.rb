@@ -4,23 +4,20 @@ class ShoppingsController < ApplicationController
 
   def index
     @shopping = ShoppingAddress.new
-    if @item.shopping.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.shopping.present?
   end
 
   def create
     @shopping = ShoppingAddress.new(shopping_params)
-    
+
     if @shopping.valid?
       pay_item
       @shopping.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
   end
-
 
   private
 
@@ -29,7 +26,7 @@ class ShoppingsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: params[:token],
@@ -44,6 +41,4 @@ class ShoppingsController < ApplicationController
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
   end
-
-
 end
