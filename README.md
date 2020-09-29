@@ -63,7 +63,6 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :shopping
 
-
 ## shoppings テーブル
  
 | Column|    Type    | Options                        |
