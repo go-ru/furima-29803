@@ -5,6 +5,7 @@ class ShoppingsController < ApplicationController
   def index
     @shopping = ShoppingAddress.new
     redirect_to root_path if @item.shopping.present?
+    redirect_to root_path if @item.user_id == current_user.id
   end
 
   def create
